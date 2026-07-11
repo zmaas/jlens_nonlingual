@@ -15,8 +15,13 @@ if str(VENDORED_JLENS) not in sys.path:
 
 CENTER_SQUARES = {27, 28, 35, 36}
 TOKEN_TO_SQUARE = [square for square in range(64) if square not in CENTER_SQUARES]
-SQUARE_TO_TOKEN = {square: token for token, square in enumerate(TOKEN_TO_SQUARE)}
-PASS_TOKEN = 60
+# OthelloGPT uses tokens 1..60 for the playable board squares; token 0 is not
+# a move. Pass turns are not emitted into the sequence.
+SQUARE_TO_TOKEN = {
+    square: token for token, square in enumerate(TOKEN_TO_SQUARE, start=1)
+}
+UNUSED_TOKEN = 0
+TOKEN_ENCODING = "othellogpt-squares-1-to-60-v1"
 CHECKPOINT_REPO = "NeelNanda/Othello-GPT-Transformer-Lens"
 CHECKPOINT_FILE = "synthetic_model.pth"
 CAVEAT = (
@@ -55,7 +60,7 @@ def legal_moves(board: list[int], player: int) -> list[int]:
     return [square for square in range(64) if _captures(board, square, player)]
 
 
-def random_game(rng: random.Random, *, max_moves: int = 59) -> list[int]:
+def random_game(rng: random.Random, *, max_moves: int = 60) -> list[int]:
     """Generate a legal game in OthelloGPT's 61-token vocabulary."""
     board = [0] * 64
     board[27] = board[36] = -1
@@ -65,7 +70,6 @@ def random_game(rng: random.Random, *, max_moves: int = 59) -> list[int]:
     while len(tokens) < max_moves and passes < 2:
         moves = legal_moves(board, player)
         if not moves:
-            tokens.append(PASS_TOKEN)
             passes += 1
             player = -player
             continue
@@ -91,11 +95,11 @@ def generate_games(n_games: int, *, seed: int, min_length: int = 18) -> list[lis
 
 
 def token_label(token: int) -> str:
-    if token == PASS_TOKEN:
-        return "PASS"
-    if not 0 <= token < len(TOKEN_TO_SQUARE):
+    if token == UNUSED_TOKEN:
+        return "UNUSED"
+    if not 1 <= token <= len(TOKEN_TO_SQUARE):
         return f"token-{token}"
-    row, col = divmod(TOKEN_TO_SQUARE[token], 8)
+    row, col = divmod(TOKEN_TO_SQUARE[token - 1], 8)
     return f"{chr(ord('A') + col)}{row + 1}"
 
 

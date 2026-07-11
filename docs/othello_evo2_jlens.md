@@ -42,6 +42,11 @@ uv run python scripts/run_othello_coffee_demo.py \
 The main run creates `othello_jlens.pt`, `othello_eval.json`, and
 `othello_summary.md`. Fitting is resumable through `othello_fit_ckpt.pt`.
 
+OthelloGPT encodes the 60 playable squares as tokens `1..60`; token `0` is
+unused. A pass changes the active player but does not add a sequence token.
+Checkpoint and lens metadata record this encoding, and the scripts refuse to
+resume or evaluate artifacts created with a different or unknown encoding.
+
 ## Interpretation
 
 This direct J-lens decodes move tokens, not board-state labels. Legal-move

@@ -4,9 +4,16 @@
 from __future__ import annotations
 
 import argparse
+import json
 from pathlib import Path
 
-from othello_common import generate_games, load_model, parse_layers, write_json
+from othello_common import (
+    TOKEN_ENCODING,
+    generate_games,
+    load_model,
+    parse_layers,
+    write_json,
+)
 
 
 def main() -> None:
@@ -30,6 +37,34 @@ def main() -> None:
 
     out = Path(args.out)
     out.parent.mkdir(parents=True, exist_ok=True)
+    checkpoint_path = Path(args.checkpoint_path)
+    checkpoint_metadata_path = checkpoint_path.with_suffix(
+        checkpoint_path.suffix + ".metadata.json"
+    )
+    checkpoint_metadata = {
+        "token_encoding": TOKEN_ENCODING,
+        "seed": args.seed,
+        "n_prompts": args.n_prompts,
+        "max_seq_len": args.max_seq_len,
+    }
+    if args.no_resume and checkpoint_path.exists():
+        # Invalidate the prior accumulator immediately. Otherwise a failure
+        # before the first new checkpoint could leave old Jacobians paired
+        # with freshly written metadata and make a later resume unsafe.
+        checkpoint_path.unlink()
+    if not args.no_resume and checkpoint_path.exists():
+        if not checkpoint_metadata_path.exists():
+            raise RuntimeError(
+                f"refusing to resume {checkpoint_path}: it predates the corrected "
+                "OthelloGPT token encoding; pass --no-resume or use a new out directory"
+            )
+        saved_metadata = json.loads(checkpoint_metadata_path.read_text())
+        if saved_metadata != checkpoint_metadata:
+            raise RuntimeError(
+                f"refusing to resume {checkpoint_path}: prompt metadata differs "
+                f"({saved_metadata!r} != {checkpoint_metadata!r})"
+            )
+    write_json(checkpoint_metadata_path, checkpoint_metadata)
     model = TransformerLensLensModel(load_model(args.device, args.checkpoint))
     prompts = generate_games(args.n_prompts, seed=args.seed, min_length=args.skip_first + 2)
     lens = jlens.fit(
@@ -40,7 +75,7 @@ def main() -> None:
         dim_batch=args.dim_batch,
         max_seq_len=args.max_seq_len,
         skip_first=args.skip_first,
-        checkpoint_path=args.checkpoint_path,
+        checkpoint_path=str(checkpoint_path),
         resume=not args.no_resume,
     )
     lens.save(str(out))
@@ -55,6 +90,7 @@ def main() -> None:
             "dim_batch": args.dim_batch,
             "skip_first": args.skip_first,
             "seed": args.seed,
+            "token_encoding": TOKEN_ENCODING,
         },
     )
     print(f"saved {out}")

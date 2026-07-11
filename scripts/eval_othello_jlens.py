@@ -8,7 +8,14 @@ import json
 import statistics
 from pathlib import Path
 
-from othello_common import CAVEAT, generate_games, load_model, token_label, write_json
+from othello_common import (
+    CAVEAT,
+    TOKEN_ENCODING,
+    generate_games,
+    load_model,
+    token_label,
+    write_json,
+)
 
 
 def _rank(logits, target: int) -> int:
@@ -28,6 +35,15 @@ def evaluate(args) -> dict:
     from jlens import JacobianLens
     from jlens.adapters import TransformerLensLensModel
 
+    metadata_path = Path(args.lens).with_suffix(".metadata.json")
+    if not metadata_path.exists():
+        raise RuntimeError(f"missing lens metadata: {metadata_path}")
+    metadata = json.loads(metadata_path.read_text())
+    if metadata.get("token_encoding") != TOKEN_ENCODING:
+        raise RuntimeError(
+            f"refusing to evaluate {args.lens}: expected token encoding "
+            f"{TOKEN_ENCODING!r}, found {metadata.get('token_encoding')!r}; refit the lens"
+        )
     model = TransformerLensLensModel(load_model(args.device, args.checkpoint))
     lens = JacobianLens.load(args.lens)
     games = generate_games(args.n_games, seed=args.seed, min_length=args.skip_first + 2)
@@ -65,8 +81,6 @@ def evaluate(args) -> dict:
                 "jlens_top_k_by_layer": per_layer,
             })
 
-    metadata_path = Path(args.lens).with_suffix(".metadata.json")
-    metadata = json.loads(metadata_path.read_text()) if metadata_path.exists() else {}
     return {
         "model": "OthelloGPT synthetic TransformerLens checkpoint",
         "config": {"n_layers": 8, "d_model": 512, "d_vocab": 61, "n_ctx": 59},
@@ -75,6 +89,7 @@ def evaluate(args) -> dict:
         "n_prompts": lens.n_prompts,
         "n_eval_games": args.n_games,
         "k": args.k,
+        "token_encoding": TOKEN_ENCODING,
         "metrics": {
             "jlens": {
                 layer: _summary(values, args.k)
