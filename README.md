@@ -1,5 +1,14 @@
-Minimal toy repo exploring what the jacobian lens approach yields on non-language based models
+# Jacobian Lens on non-language models
 
-# notes
+Minimal adapters and experiments for applying Anthropic's Jacobian Lens to
+non-language models. Phase 1 is an OthelloGPT coffee demo; real Evo2 work is
+intentionally deferred until that smoke test passes.
 
-- use / prefer uv for python environment management
+Anthropic's implementation is vendored at `vendor/jacobian-lens` and retains
+its Apache-2.0 license. The algorithm is reused rather than reimplemented.
+
+See [`docs/othello_evo2_jlens.md`](docs/othello_evo2_jlens.md) for the cloud
+GPU command, local-checkpoint option, fallbacks, outputs, and interpretation.
+
+Package management uses `uv`. This checkout intentionally does not contain
+model weights or an installed environment.

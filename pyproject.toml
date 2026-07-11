@@ -1,0 +1,25 @@
+[project]
+name = "jlens-nonlingual"
+version = "0.1.0"
+description = "Minimal Jacobian Lens adapters and OthelloGPT coffee demo"
+requires-python = ">=3.10"
+dependencies = [
+    "jlens",
+    "transformer-lens",
+]
+
+[dependency-groups]
+dev = ["pytest", "ruff"]
+
+[tool.uv.sources]
+jlens = { path = "vendor/jacobian-lens", editable = true }
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
