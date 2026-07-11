@@ -1,11 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="720" height="360" viewBox="0 0 720 360" role="img" aria-labelledby="title desc">
-  <title id="title">OthelloGPT next-move pass at 5 by layer</title>
-  <desc id="desc">J-lens rises from 18.1 percent at layer zero to 61.0 percent at layer six. Logit lens starts at 45.7 percent and reaches 61.3 percent. Final logits score 61.3 percent.</desc>
-  <rect width="720" height="360" fill="#ffffff"/>
+  <title id="title">OthelloGPT sampled-target top-5 inclusion by layer</title>
+  <desc id="desc">Percentage of positions where the randomly sampled next move appears among the five highest-ranked tokens. J-lens rises from 18.1 percent at layer zero to 61.0 percent at layer six. Logit lens starts at 45.7 percent and reaches 61.3 percent.</desc>
   <g font-family="system-ui, sans-serif" font-size="12" fill="#24292f">
-    <text x="60" y="18" font-size="16" font-weight="600">Next-move pass@5</text>
+    <text x="60" y="18" font-size="16" font-weight="600">Sampled next move appears in the top 5</text>
     <text x="370" y="344" text-anchor="middle">Source layer</text>
-    <text transform="translate(16 165) rotate(-90)" text-anchor="middle">Pass@5</text>
+    <text transform="translate(16 165) rotate(-90)" text-anchor="middle">Target top-5 inclusion</text>
   </g>
   <g stroke="#d8dee4" stroke-width="1">
     <path d="M60 300H680 M60 226H680 M60 151H680 M60 77H680"/>

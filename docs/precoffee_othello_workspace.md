@@ -37,7 +37,7 @@ out/precoffee/results.json
 ## Experiment 1: legal-move emergence
 
 `eval_othello_legality.py` measures legal precision@5, recall@5, legal
-probability mass, any-legal@5, unused-token rate, and sampled-target pass@5 for
+probability mass, any-legal@5, unused-token rate, and sampled-target top-5 inclusion for
 J-lens, logit lens, and final logits. Confidence intervals resample whole games;
 paired J-minus-logit results preserve position-level pairing within games.
 

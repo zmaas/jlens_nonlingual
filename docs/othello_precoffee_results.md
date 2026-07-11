@@ -8,7 +8,7 @@ This is encouraging evidence for a minimal workspace-like mechanism. It is not y
 
 ## 1. Legal moves become directly readable
 
-The Jacobian lens was fit on 100 Othello games and evaluated on a separate 100 games. Its ability to identify the sampled next move rose steadily through the network: pass@5 increased from **0.181 at layer 0** to **0.610 at layer 6**, essentially matching the model's final logits at 0.613.
+The Jacobian lens was fit on 100 Othello games and evaluated on a separate 100 games. Its ability to identify the sampled next move rose steadily through the network: target top-5 inclusion increased from **0.181 at layer 0** to **0.610 at layer 6**, essentially matching the model's final logits at 0.613.
 
 More importantly, the lens increasingly represented the *set of legal actions*, not just the sampled target. Legal precision among its top five moves rose from **0.265 to 0.921**, while total probability assigned to legal moves rose from **0.220 to 0.994**.
 
@@ -30,7 +30,7 @@ Steering toward illegal moves raised their logits but almost never put them in t
 
 At layer 6, the 60-dimensional linear span of move directions contains essentially all linearly probed legal-action information:
 
-| Representation | Legal precision@5 | Next-move pass@5 | Board-state accuracy |
+| Representation | Legal precision@5 | Target top-5 inclusion | Board-state accuracy |
 |---|---:|---:|---:|
 | Full residual stream | 0.916 | 0.426 | 0.369 |
 | Move/Jacobian span | 0.916 | 0.588 | 0.346 |

@@ -7,8 +7,8 @@ minimal non-language test. The experiment fitted average residual-stream
 transport maps on 100 legal games and evaluated 4,298 next-move predictions
 from 100 held-out games.
 
-The Jacobian Lens becomes steadily more output-aligned with depth: next-move
-pass@5 rises from 18.1% at layer 0 to 61.0% at layer 6, while median rank falls
+The Jacobian Lens becomes steadily more output-aligned with depth: sampled-target
+top-5 inclusion rises from 18.1% at layer 0 to 61.0% at layer 6, while median rank falls
 from 20 to 4. At layer 6 it nearly matches both the ordinary logit lens (61.3%)
 and final model logits (61.3%). It does **not** outperform the logit lens at
 earlier layers.
@@ -68,11 +68,11 @@ used an incorrect zero-based token map and must not be cited.
 
 ## Results
 
-![Next-move pass at 5 by layer](assets/othello-pass-at-5.svg)
+![Sampled-target top-5 inclusion by layer](assets/othello-pass-at-5.svg)
 
 ![Median next-move rank by layer](assets/othello-median-rank.svg)
 
-| Layer | J-lens pass@5 | Logit lens pass@5 | Difference | J-lens median rank | Logit median rank |
+| Layer | J-lens target top-5 | Logit lens target top-5 | Difference | J-lens median rank | Logit median rank |
 |---:|---:|---:|---:|---:|---:|
 | 0 | 18.1% | 45.7% | −27.6 pp | 20 | 6 |
 | 1 | 22.4% | 51.9% | −29.5 pp | 17 | 5 |
@@ -102,17 +102,18 @@ This is therefore a positive sanity check for **convergence and meaningful
 transport**, but a negative result for **J-lens outperforming direct decoding**
 on this model.
 
-## Why pass@5 tops out near 60%
+## Why target top-5 inclusion tops out near 60%
 
 The held-out generator chooses uniformly among currently legal moves. There
 are 9.3 legal continuations on average (median 10). Even a predictor whose top
 five are all legal cannot know which legal move the random generator will pick;
-its expected pass@5 on this sample is approximately 60.1%.
+its expected target top-5 inclusion on this sample is approximately 60.1%.
 
 Final logits score 61.3% and layer-6 J-lens scores 61.0%, consistent with both
 primarily recovering the legal-move set rather than predicting an intrinsically
-preferred continuation. For that reason, exact-next-move pass@5 is a convenient
-smoke metric but legal precision@5 and recall@5 are the better next evaluation.
+preferred continuation. For that reason, sampled-target top-5 inclusion is a
+convenient smoke metric but legal precision@5 and recall@5 are the better next
+evaluation.
 
 The examples support this reading:
 
@@ -143,7 +144,7 @@ Not supported:
 
 > We reused Anthropic's average-Jacobian lens unchanged and adapted
 > TransformerLens residual streams to it. On OthelloGPT, the transported
-> readout improves smoothly from 18% to 61% next-move pass@5 across layers and
+> readout improves smoothly from 18% to 61% sampled-target top-5 inclusion across layers and
 > matches final-logit quality by layer 6. The ordinary logit lens is markedly
 > better in early layers, so the result is not a J-lens performance win. The
 > interesting signal is that average linear transport converges to a coherent

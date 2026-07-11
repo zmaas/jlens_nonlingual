@@ -53,6 +53,6 @@ This direct J-lens decodes move tokens, not board-state labels. Legal-move
 enrichment is suggestive only; board occupancy requires a probe/template
 extension.
 
-The evaluation reports held-out next-move pass@5 and median rank for J-lens,
+The evaluation reports held-out sampled-target top-5 inclusion and median rank for J-lens,
 the ordinary logit lens, and final logits. These are move-token disposition
 metrics, not evidence that a layer directly represents board occupancy.

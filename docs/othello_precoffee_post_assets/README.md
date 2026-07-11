@@ -1,6 +1,6 @@
 # OthelloGPT pre-coffee post figures
 
-1. `01-legal-move-precision.svg` — legal precision@5 across model layers.
+1. `01-legal-move-precision.svg` — fraction of the five highest-ranked moves that are legal, across model layers.
 2. `02-causal-move-steering.svg` — target-logit effect of causal steering.
 3. `03-subspace-ablation.svg` — effect of removing the J-span versus controls.
 
