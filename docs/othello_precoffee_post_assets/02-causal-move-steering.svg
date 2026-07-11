@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="420" viewBox="0 0 720 420" role="img" aria-labelledby="title desc">
+<title id="title">Late-layer steering promotes the chosen legal move</title>
+<desc id="desc">Change in the chosen legal move's output logit after a ten-percent residual-norm intervention, comparing target Jacobian, target logit, random, and other-move directions.</desc>
+<text x="68" y="20" font-family="system-ui" font-size="16" font-weight="600" fill="#24292f">Late-layer steering promotes the chosen legal move</text>
+<path d="M68 302.0H690" stroke="#d8dee4"/>
+<text x="58" y="306.0" text-anchor="end" font-family="system-ui" font-size="11" fill="#57606a">-0.02</text>
+<path d="M68 236.0H690" stroke="#d8dee4"/>
+<text x="58" y="240.0" text-anchor="end" font-family="system-ui" font-size="11" fill="#57606a">0.04</text>
+<path d="M68 170.0H690" stroke="#d8dee4"/>
+<text x="58" y="174.0" text-anchor="end" font-family="system-ui" font-size="11" fill="#57606a">0.11</text>
+<path d="M68 104.0H690" stroke="#d8dee4"/>
+<text x="58" y="108.0" text-anchor="end" font-family="system-ui" font-size="11" fill="#57606a">0.17</text>
+<path d="M68 38.0H690" stroke="#d8dee4"/>
+<text x="58" y="42.0" text-anchor="end" font-family="system-ui" font-size="11" fill="#57606a">0.24</text>
+<path d="M68 38V302H690" fill="none" stroke="#57606a"/>
+<text x="68.0" y="322" text-anchor="middle" font-family="system-ui" font-size="11" fill="#57606a">0</text>
+<text x="171.7" y="322" text-anchor="middle" font-family="system-ui" font-size="11" fill="#57606a">1</text>
+<text x="275.3" y="322" text-anchor="middle" font-family="system-ui" font-size="11" fill="#57606a">2</text>
+<text x="379.0" y="322" text-anchor="middle" font-family="system-ui" font-size="11" fill="#57606a">3</text>
+<text x="482.7" y="322" text-anchor="middle" font-family="system-ui" font-size="11" fill="#57606a">4</text>
+<text x="586.3" y="322" text-anchor="middle" font-family="system-ui" font-size="11" fill="#57606a">5</text>
+<text x="690.0" y="322" text-anchor="middle" font-family="system-ui" font-size="11" fill="#57606a">6</text>
+<text x="18" y="170" transform="rotate(-90 18 170)" text-anchor="middle" font-family="system-ui" font-size="11" fill="#24292f">Change in chosen move's output logit</text>
+<text x="379" y="341" text-anchor="middle" font-family="system-ui" font-size="11" fill="#24292f">Layer where direction is added (10% of residual norm)</text>
+<polyline points="68.0,278.6 171.7,277.8 275.3,278.2 379.0,274.4 482.7,271.3 586.3,280.4 690.0,38.5" fill="none" stroke="#0969da" stroke-width="3"/>
+<circle cx="68.0" cy="278.6" r="4" fill="#0969da"/>
+<circle cx="171.7" cy="277.8" r="4" fill="#0969da"/>
+<circle cx="275.3" cy="278.2" r="4" fill="#0969da"/>
+<circle cx="379.0" cy="274.4" r="4" fill="#0969da"/>
+<circle cx="482.7" cy="271.3" r="4" fill="#0969da"/>
+<circle cx="586.3" cy="280.4" r="4" fill="#0969da"/>
+<circle cx="690.0" cy="38.5" r="4" fill="#0969da"/>
+<line x1="120" y1="370" x2="144" y2="370" stroke="#0969da" stroke-width="3"/>
+<text x="150" y="374" font-family="system-ui" font-size="10" fill="#24292f">Target Jacobian direction</text>
+<polyline points="68.0,278.4 171.7,277.9 275.3,276.4 379.0,270.7 482.7,276.5 586.3,279.3 690.0,38.0" fill="none" stroke="#bf3989" stroke-width="3"/>
+<circle cx="68.0" cy="278.4" r="4" fill="#bf3989"/>
+<circle cx="171.7" cy="277.9" r="4" fill="#bf3989"/>
+<circle cx="275.3" cy="276.4" r="4" fill="#bf3989"/>
+<circle cx="379.0" cy="270.7" r="4" fill="#bf3989"/>
+<circle cx="482.7" cy="276.5" r="4" fill="#bf3989"/>
+<circle cx="586.3" cy="279.3" r="4" fill="#bf3989"/>
+<circle cx="690.0" cy="38.0" r="4" fill="#bf3989"/>
+<line x1="420" y1="370" x2="444" y2="370" stroke="#bf3989" stroke-width="3"/>
+<text x="450" y="374" font-family="system-ui" font-size="10" fill="#24292f">Target logit direction</text>
+<polyline points="68.0,279.3 171.7,280.7 275.3,281.4 379.0,290.0 482.7,295.5 586.3,302.0 690.0,296.6" fill="none" stroke="#1a7f37" stroke-width="3"/>
+<circle cx="68.0" cy="279.3" r="4" fill="#1a7f37"/>
+<circle cx="171.7" cy="280.7" r="4" fill="#1a7f37"/>
+<circle cx="275.3" cy="281.4" r="4" fill="#1a7f37"/>
+<circle cx="379.0" cy="290.0" r="4" fill="#1a7f37"/>
+<circle cx="482.7" cy="295.5" r="4" fill="#1a7f37"/>
+<circle cx="586.3" cy="302.0" r="4" fill="#1a7f37"/>
+<circle cx="690.0" cy="296.6" r="4" fill="#1a7f37"/>
+<line x1="180" y1="399" x2="204" y2="399" stroke="#1a7f37" stroke-width="3"/>
+<text x="210" y="403" font-family="system-ui" font-size="10" fill="#24292f">Random direction (control)</text>
+<polyline points="68.0,280.5 171.7,282.3 275.3,280.5 379.0,278.8 482.7,274.4 586.3,271.0 690.0,249.1" fill="none" stroke="#9a6700" stroke-width="3"/>
+<circle cx="68.0" cy="280.5" r="4" fill="#9a6700"/>
+<circle cx="171.7" cy="282.3" r="4" fill="#9a6700"/>
+<circle cx="275.3" cy="280.5" r="4" fill="#9a6700"/>
+<circle cx="379.0" cy="278.8" r="4" fill="#9a6700"/>
+<circle cx="482.7" cy="274.4" r="4" fill="#9a6700"/>
+<circle cx="586.3" cy="271.0" r="4" fill="#9a6700"/>
+<circle cx="690.0" cy="249.1" r="4" fill="#9a6700"/>
+<line x1="420" y1="399" x2="444" y2="399" stroke="#9a6700" stroke-width="3"/>
+<text x="450" y="403" font-family="system-ui" font-size="10" fill="#24292f">Other move's Jacobian direction</text>
+</svg>

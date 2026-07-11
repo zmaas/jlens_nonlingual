@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="415" viewBox="0 0 720 415" role="img" aria-labelledby="title desc">
+<title id="title">Removing the move-aligned subspace disrupts legal play</title>
+<desc id="desc">Probability assigned to legal moves after removing or retaining selected residual-stream subspaces at layers zero through six.</desc>
+<text x="68" y="20" font-family="system-ui" font-size="16" font-weight="600" fill="#24292f">Removing the move-aligned subspace disrupts legal play</text>
+<path d="M68 302.0H690" stroke="#d8dee4"/>
+<text x="58" y="306.0" text-anchor="end" font-family="system-ui" font-size="11" fill="#57606a">0%</text>
+<path d="M68 236.0H690" stroke="#d8dee4"/>
+<text x="58" y="240.0" text-anchor="end" font-family="system-ui" font-size="11" fill="#57606a">25%</text>
+<path d="M68 170.0H690" stroke="#d8dee4"/>
+<text x="58" y="174.0" text-anchor="end" font-family="system-ui" font-size="11" fill="#57606a">50%</text>
+<path d="M68 104.0H690" stroke="#d8dee4"/>
+<text x="58" y="108.0" text-anchor="end" font-family="system-ui" font-size="11" fill="#57606a">75%</text>
+<path d="M68 38.0H690" stroke="#d8dee4"/>
+<text x="58" y="42.0" text-anchor="end" font-family="system-ui" font-size="11" fill="#57606a">100%</text>
+<path d="M68 38V302H690" fill="none" stroke="#57606a"/>
+<text x="68.0" y="322" text-anchor="middle" font-family="system-ui" font-size="11" fill="#57606a">0</text>
+<text x="171.7" y="322" text-anchor="middle" font-family="system-ui" font-size="11" fill="#57606a">1</text>
+<text x="275.3" y="322" text-anchor="middle" font-family="system-ui" font-size="11" fill="#57606a">2</text>
+<text x="379.0" y="322" text-anchor="middle" font-family="system-ui" font-size="11" fill="#57606a">3</text>
+<text x="482.7" y="322" text-anchor="middle" font-family="system-ui" font-size="11" fill="#57606a">4</text>
+<text x="586.3" y="322" text-anchor="middle" font-family="system-ui" font-size="11" fill="#57606a">5</text>
+<text x="690.0" y="322" text-anchor="middle" font-family="system-ui" font-size="11" fill="#57606a">6</text>
+<text x="18" y="170" transform="rotate(-90 18 170)" text-anchor="middle" font-family="system-ui" font-size="11" fill="#24292f">Probability assigned to legal moves</text>
+<text x="379" y="341" text-anchor="middle" font-family="system-ui" font-size="11" fill="#24292f">Layer where subspace is modified</text>
+<polyline points="68.0,43.8 171.7,41.7 275.3,49.8 379.0,51.0 482.7,59.4 586.3,95.0 690.0,227.0" fill="none" stroke="#0969da" stroke-width="3"/>
+<circle cx="68.0" cy="43.8" r="4" fill="#0969da"/>
+<circle cx="171.7" cy="41.7" r="4" fill="#0969da"/>
+<circle cx="275.3" cy="49.8" r="4" fill="#0969da"/>
+<circle cx="379.0" cy="51.0" r="4" fill="#0969da"/>
+<circle cx="482.7" cy="59.4" r="4" fill="#0969da"/>
+<circle cx="586.3" cy="95.0" r="4" fill="#0969da"/>
+<circle cx="690.0" cy="227.0" r="4" fill="#0969da"/>
+<line x1="45" y1="369" x2="69" y2="369" stroke="#0969da" stroke-width="3"/>
+<text x="75" y="373" font-family="system-ui" font-size="10" fill="#24292f">Remove move/Jacobian span</text>
+<polyline points="68.0,46.1 171.7,50.8 275.3,62.7 379.0,72.9 482.7,66.9 586.3,96.9 690.0,202.9" fill="none" stroke="#bf3989" stroke-width="3"/>
+<circle cx="68.0" cy="46.1" r="4" fill="#bf3989"/>
+<circle cx="171.7" cy="50.8" r="4" fill="#bf3989"/>
+<circle cx="275.3" cy="62.7" r="4" fill="#bf3989"/>
+<circle cx="379.0" cy="72.9" r="4" fill="#bf3989"/>
+<circle cx="482.7" cy="66.9" r="4" fill="#bf3989"/>
+<circle cx="586.3" cy="96.9" r="4" fill="#bf3989"/>
+<circle cx="690.0" cy="202.9" r="4" fill="#bf3989"/>
+<line x1="270" y1="369" x2="294" y2="369" stroke="#bf3989" stroke-width="3"/>
+<text x="300" y="373" font-family="system-ui" font-size="10" fill="#24292f">Remove output/logit span</text>
+<polyline points="68.0,38.7 171.7,38.9 275.3,39.1 379.0,39.3 482.7,38.9 586.3,39.0 690.0,38.7" fill="none" stroke="#1a7f37" stroke-width="3"/>
+<circle cx="68.0" cy="38.7" r="4" fill="#1a7f37"/>
+<circle cx="171.7" cy="38.9" r="4" fill="#1a7f37"/>
+<circle cx="275.3" cy="39.1" r="4" fill="#1a7f37"/>
+<circle cx="379.0" cy="39.3" r="4" fill="#1a7f37"/>
+<circle cx="482.7" cy="38.9" r="4" fill="#1a7f37"/>
+<circle cx="586.3" cy="39.0" r="4" fill="#1a7f37"/>
+<circle cx="690.0" cy="38.7" r="4" fill="#1a7f37"/>
+<line x1="490" y1="369" x2="514" y2="369" stroke="#1a7f37" stroke-width="3"/>
+<text x="520" y="373" font-family="system-ui" font-size="10" fill="#24292f">Remove random span (control)</text>
+<polyline points="68.0,234.7 171.7,221.6 275.3,220.0 379.0,211.2 482.7,172.3 586.3,152.8 690.0,80.6" fill="none" stroke="#9a6700" stroke-width="3"/>
+<circle cx="68.0" cy="234.7" r="4" fill="#9a6700"/>
+<circle cx="171.7" cy="221.6" r="4" fill="#9a6700"/>
+<circle cx="275.3" cy="220.0" r="4" fill="#9a6700"/>
+<circle cx="379.0" cy="211.2" r="4" fill="#9a6700"/>
+<circle cx="482.7" cy="172.3" r="4" fill="#9a6700"/>
+<circle cx="586.3" cy="152.8" r="4" fill="#9a6700"/>
+<circle cx="690.0" cy="80.6" r="4" fill="#9a6700"/>
+<line x1="155" y1="397" x2="179" y2="397" stroke="#9a6700" stroke-width="3"/>
+<text x="185" y="401" font-family="system-ui" font-size="10" fill="#24292f">Keep only move/Jacobian span</text>
+<polyline points="68.0,38.5 171.7,38.5 275.3,38.5 379.0,38.5 482.7,38.5 586.3,38.5 690.0,38.5" fill="none" stroke="#8250df" stroke-width="3"/>
+<circle cx="68.0" cy="38.5" r="4" fill="#8250df"/>
+<circle cx="171.7" cy="38.5" r="4" fill="#8250df"/>
+<circle cx="275.3" cy="38.5" r="4" fill="#8250df"/>
+<circle cx="379.0" cy="38.5" r="4" fill="#8250df"/>
+<circle cx="482.7" cy="38.5" r="4" fill="#8250df"/>
+<circle cx="586.3" cy="38.5" r="4" fill="#8250df"/>
+<circle cx="690.0" cy="38.5" r="4" fill="#8250df"/>
+<line x1="445" y1="397" x2="469" y2="397" stroke="#8250df" stroke-width="3"/>
+<text x="475" y="401" font-family="system-ui" font-size="10" fill="#24292f">No intervention (baseline)</text>
+</svg>

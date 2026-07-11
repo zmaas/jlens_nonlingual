@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="395" viewBox="0 0 720 395" role="img" aria-labelledby="title desc">
+<title id="title">Legal moves become readable in later layers</title>
+<desc id="desc">The share of the top five predicted moves that are legal, comparing the Jacobian lens, logit lens, and final model output across layers zero through six.</desc>
+<text x="68" y="20" font-family="system-ui" font-size="16" font-weight="600" fill="#24292f">Legal moves become readable in later layers</text>
+<path d="M68 302.0H690" stroke="#d8dee4"/>
+<text x="58" y="306.0" text-anchor="end" font-family="system-ui" font-size="11" fill="#57606a">0%</text>
+<path d="M68 236.0H690" stroke="#d8dee4"/>
+<text x="58" y="240.0" text-anchor="end" font-family="system-ui" font-size="11" fill="#57606a">25%</text>
+<path d="M68 170.0H690" stroke="#d8dee4"/>
+<text x="58" y="174.0" text-anchor="end" font-family="system-ui" font-size="11" fill="#57606a">50%</text>
+<path d="M68 104.0H690" stroke="#d8dee4"/>
+<text x="58" y="108.0" text-anchor="end" font-family="system-ui" font-size="11" fill="#57606a">75%</text>
+<path d="M68 38.0H690" stroke="#d8dee4"/>
+<text x="58" y="42.0" text-anchor="end" font-family="system-ui" font-size="11" fill="#57606a">100%</text>
+<path d="M68 38V302H690" fill="none" stroke="#57606a"/>
+<text x="68.0" y="322" text-anchor="middle" font-family="system-ui" font-size="11" fill="#57606a">0</text>
+<text x="171.7" y="322" text-anchor="middle" font-family="system-ui" font-size="11" fill="#57606a">1</text>
+<text x="275.3" y="322" text-anchor="middle" font-family="system-ui" font-size="11" fill="#57606a">2</text>
+<text x="379.0" y="322" text-anchor="middle" font-family="system-ui" font-size="11" fill="#57606a">3</text>
+<text x="482.7" y="322" text-anchor="middle" font-family="system-ui" font-size="11" fill="#57606a">4</text>
+<text x="586.3" y="322" text-anchor="middle" font-family="system-ui" font-size="11" fill="#57606a">5</text>
+<text x="690.0" y="322" text-anchor="middle" font-family="system-ui" font-size="11" fill="#57606a">6</text>
+<text x="18" y="170" transform="rotate(-90 18 170)" text-anchor="middle" font-family="system-ui" font-size="11" fill="#24292f">Share of top-5 moves that are legal</text>
+<text x="379" y="341" text-anchor="middle" font-family="system-ui" font-size="11" fill="#24292f">Model layer</text>
+<polyline points="68.0,232.1 171.7,214.6 275.3,199.7 379.0,182.8 482.7,143.4 586.3,95.9 690.0,59.0" fill="none" stroke="#0969da" stroke-width="3"/>
+<circle cx="68.0" cy="232.1" r="4" fill="#0969da"/>
+<circle cx="171.7" cy="214.6" r="4" fill="#0969da"/>
+<circle cx="275.3" cy="199.7" r="4" fill="#0969da"/>
+<circle cx="379.0" cy="182.8" r="4" fill="#0969da"/>
+<circle cx="482.7" cy="143.4" r="4" fill="#0969da"/>
+<circle cx="586.3" cy="95.9" r="4" fill="#0969da"/>
+<circle cx="690.0" cy="59.0" r="4" fill="#0969da"/>
+<line x1="75" y1="370" x2="99" y2="370" stroke="#0969da" stroke-width="3"/>
+<text x="105" y="374" font-family="system-ui" font-size="11" fill="#24292f">Jacobian lens</text>
+<polyline points="68.0,123.8 171.7,103.4 275.3,90.2 379.0,82.2 482.7,74.3 586.3,59.7 690.0,58.9" fill="none" stroke="#bf3989" stroke-width="3"/>
+<circle cx="68.0" cy="123.8" r="4" fill="#bf3989"/>
+<circle cx="171.7" cy="103.4" r="4" fill="#bf3989"/>
+<circle cx="275.3" cy="90.2" r="4" fill="#bf3989"/>
+<circle cx="379.0" cy="82.2" r="4" fill="#bf3989"/>
+<circle cx="482.7" cy="74.3" r="4" fill="#bf3989"/>
+<circle cx="586.3" cy="59.7" r="4" fill="#bf3989"/>
+<circle cx="690.0" cy="58.9" r="4" fill="#bf3989"/>
+<line x1="275" y1="370" x2="299" y2="370" stroke="#bf3989" stroke-width="3"/>
+<text x="305" y="374" font-family="system-ui" font-size="11" fill="#24292f">Logit lens (direct readout)</text>
+<polyline points="68.0,58.9 171.7,58.9 275.3,58.9 379.0,58.9 482.7,58.9 586.3,58.9 690.0,58.9" fill="none" stroke="#1a7f37" stroke-width="3"/>
+<circle cx="68.0" cy="58.9" r="4" fill="#1a7f37"/>
+<circle cx="171.7" cy="58.9" r="4" fill="#1a7f37"/>
+<circle cx="275.3" cy="58.9" r="4" fill="#1a7f37"/>
+<circle cx="379.0" cy="58.9" r="4" fill="#1a7f37"/>
+<circle cx="482.7" cy="58.9" r="4" fill="#1a7f37"/>
+<circle cx="586.3" cy="58.9" r="4" fill="#1a7f37"/>
+<circle cx="690.0" cy="58.9" r="4" fill="#1a7f37"/>
+<line x1="545" y1="370" x2="569" y2="370" stroke="#1a7f37" stroke-width="3"/>
+<text x="575" y="374" font-family="system-ui" font-size="11" fill="#24292f">Final model output</text>
+</svg>
