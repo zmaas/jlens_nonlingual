@@ -38,7 +38,33 @@ Implementation complete; GPU execution is pending. Run `experiment.py` from the
 repository root. The script writes `data/results.json`, transparent SVG figures,
 runtime logs, and replaces this section with an empirical summary.
 
-## Run
+## End-to-end run
+
+The pipeline runner regenerates/evaluates the v2 lens, runs the three existing
+pre-coffee experiments, and then runs all closure tests. It streams each stage
+to the terminal and saves separate logs plus a manifest under
+`logs/end_to_end/`.
+
+Full run, downloading the OthelloGPT checkpoint on the GPU node if necessary:
+
+```bash
+uv run python experiments/2026-07-11_15-14-othello-workspace-closure/run_all.py \
+  --device cuda
+```
+
+Prefer a pre-staged checkpoint to avoid the model download:
+
+```bash
+uv run python experiments/2026-07-11_15-14-othello-workspace-closure/run_all.py \
+  --device cuda \
+  --checkpoint /path/to/synthetic_model.pth
+```
+
+Add `--quick` for an end-to-end smoke test, `--dry-run` to inspect commands,
+or `--fresh-v2` to ignore an existing partial v2 fit checkpoint. By default the
+v2 fit is resumable.
+
+## Closure-only run
 
 ```bash
 python experiments/2026-07-11_15-14-othello-workspace-closure/experiment.py \

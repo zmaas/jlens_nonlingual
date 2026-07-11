@@ -657,6 +657,21 @@ exact reproduction of their optimizer.
 - `figures/sparse_sweep_final_layer.svg`
 - `figures/weak_mode_final_layer.svg`
 - `logs/runtime.json`
+
+## Reproduction
+
+Run the complete v2 fit/evaluation, three pre-coffee experiments, and this
+closure suite with:
+
+```bash
+uv run python experiments/2026-07-11_15-14-othello-workspace-closure/run_all.py \\
+  --device cuda \\
+  --checkpoint /path/to/synthetic_model.pth
+```
+
+Omit `--checkpoint` to download the model on the GPU node. Add `--quick` for an
+end-to-end smoke test. Per-stage terminal logs and the pipeline manifest are in
+`logs/end_to_end/`.
 """
     (EXPERIMENT_DIR / "report.md").write_text(text)
 
