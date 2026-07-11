@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+# ruff: noqa: E402, I001
+
 from types import SimpleNamespace
 
 import pytest

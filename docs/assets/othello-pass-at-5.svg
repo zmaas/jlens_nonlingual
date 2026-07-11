@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="360" viewBox="0 0 720 360" role="img" aria-labelledby="title desc">
+  <title id="title">OthelloGPT next-move pass at 5 by layer</title>
+  <desc id="desc">J-lens rises from 18.1 percent at layer zero to 61.0 percent at layer six. Logit lens starts at 45.7 percent and reaches 61.3 percent. Final logits score 61.3 percent.</desc>
+  <rect width="720" height="360" fill="#ffffff"/>
+  <g font-family="system-ui, sans-serif" font-size="12" fill="#24292f">
+    <text x="60" y="18" font-size="16" font-weight="600">Next-move pass@5</text>
+    <text x="370" y="344" text-anchor="middle">Source layer</text>
+    <text transform="translate(16 165) rotate(-90)" text-anchor="middle">Pass@5</text>
+  </g>
+  <g stroke="#d8dee4" stroke-width="1">
+    <path d="M60 300H680 M60 226H680 M60 151H680 M60 77H680"/>
+  </g>
+  <g stroke="#57606a" stroke-width="1.2">
+    <path d="M60 30V300H680" fill="none"/>
+  </g>
+  <g font-family="system-ui, sans-serif" font-size="11" fill="#57606a">
+    <text x="50" y="304" text-anchor="end">0%</text>
+    <text x="50" y="230" text-anchor="end">20%</text>
+    <text x="50" y="155" text-anchor="end">40%</text>
+    <text x="50" y="81" text-anchor="end">60%</text>
+    <text x="60" y="318" text-anchor="middle">0</text><text x="163" y="318" text-anchor="middle">1</text>
+    <text x="267" y="318" text-anchor="middle">2</text><text x="370" y="318" text-anchor="middle">3</text>
+    <text x="473" y="318" text-anchor="middle">4</text><text x="577" y="318" text-anchor="middle">5</text>
+    <text x="680" y="318" text-anchor="middle">6</text>
+  </g>
+  <path d="M60 232.8 L163 216.8 L267 202.3 L370 179.1 L473 147.7 L577 103.0 L680 73.5" fill="none" stroke="#0969da" stroke-width="3"/>
+  <path d="M60 130.3 L163 107.3 L267 95.7 L370 89.8 L473 83.1 L577 74.9 L680 72.3" fill="none" stroke="#bf3989" stroke-width="3"/>
+  <path d="M60 72.4 H680" fill="none" stroke="#57606a" stroke-width="2" stroke-dasharray="7 5"/>
+  <g fill="#0969da">
+    <circle cx="60" cy="232.8" r="4"/><circle cx="163" cy="216.8" r="4"/><circle cx="267" cy="202.3" r="4"/><circle cx="370" cy="179.1" r="4"/><circle cx="473" cy="147.7" r="4"/><circle cx="577" cy="103" r="4"/><circle cx="680" cy="73.5" r="4"/>
+  </g>
+  <g fill="#bf3989">
+    <rect x="56" y="126.3" width="8" height="8"/><rect x="159" y="103.3" width="8" height="8"/><rect x="263" y="91.7" width="8" height="8"/><rect x="366" y="85.8" width="8" height="8"/><rect x="469" y="79.1" width="8" height="8"/><rect x="573" y="70.9" width="8" height="8"/><rect x="676" y="68.3" width="8" height="8"/>
+  </g>
+  <g font-family="system-ui, sans-serif" font-size="11" fill="#24292f">
+    <line x1="82" y1="42" x2="108" y2="42" stroke="#0969da" stroke-width="3"/><circle cx="95" cy="42" r="4" fill="#0969da"/><text x="114" y="46">J-lens</text>
+    <line x1="180" y1="42" x2="206" y2="42" stroke="#bf3989" stroke-width="3"/><rect x="189" y="38" width="8" height="8" fill="#bf3989"/><text x="212" y="46">Logit lens</text>
+    <line x1="300" y1="42" x2="326" y2="42" stroke="#57606a" stroke-width="2" stroke-dasharray="7 5"/><text x="332" y="46">Final logits (61.3%)</text>
+    <text x="674" y="65" text-anchor="end" fill="#0969da">61.0%</text>
+    <text x="66" y="246" fill="#0969da">18.1%</text>
+  </g>
+</svg>

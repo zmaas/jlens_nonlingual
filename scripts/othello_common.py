@@ -17,9 +17,7 @@ CENTER_SQUARES = {27, 28, 35, 36}
 TOKEN_TO_SQUARE = [square for square in range(64) if square not in CENTER_SQUARES]
 # OthelloGPT uses tokens 1..60 for the playable board squares; token 0 is not
 # a move. Pass turns are not emitted into the sequence.
-SQUARE_TO_TOKEN = {
-    square: token for token, square in enumerate(TOKEN_TO_SQUARE, start=1)
-}
+SQUARE_TO_TOKEN = {square: token for token, square in enumerate(TOKEN_TO_SQUARE, start=1)}
 UNUSED_TOKEN = 0
 TOKEN_ENCODING = "othellogpt-squares-1-to-60-v1"
 CHECKPOINT_REPO = "NeelNanda/Othello-GPT-Transformer-Lens"
@@ -92,6 +90,54 @@ def generate_games(n_games: int, *, seed: int, min_length: int = 18) -> list[lis
         if len(game) >= min_length:
             games.append(game)
     return games
+
+
+def game_position_states(
+    game: list[int], *, skip_first: int = 16, max_seq_len: int = 59
+) -> list[dict[str, Any]]:
+    """Replay ``game`` and describe every evaluated next-move position.
+
+    Each record is the state *after* the token at ``position`` has been played,
+    matching the activation used to predict ``game[position + 1]``.
+    """
+    board = [0] * 64
+    board[27] = board[36] = -1
+    board[28] = board[35] = 1
+    player = 1
+    records: list[dict[str, Any]] = []
+    encoded_length = min(len(game), max_seq_len)
+    for position, token in enumerate(game[:encoded_length]):
+        moves = legal_moves(board, player)
+        if not moves:
+            player = -player
+            moves = legal_moves(board, player)
+        square = TOKEN_TO_SQUARE[token - 1]
+        if square not in moves:
+            raise ValueError(f"illegal token {token} ({token_label(token)}) at position {position}")
+        captured = _captures(board, square, player)
+        board[square] = player
+        for captured_square in captured:
+            board[captured_square] = player
+        player = -player
+
+        # Position ``max_seq_len - 1`` can still predict the following token,
+        # even though that target token is not itself part of the model input.
+        if skip_first <= position < len(game) - 1:
+            next_player = player
+            next_moves = legal_moves(board, next_player)
+            if not next_moves:
+                next_player = -next_player
+                next_moves = legal_moves(board, next_player)
+            records.append(
+                {
+                    "position": position,
+                    "target": game[position + 1],
+                    "legal_tokens": [SQUARE_TO_TOKEN[s] for s in next_moves],
+                    "board": board.copy(),
+                    "player": next_player,
+                }
+            )
+    return records
 
 
 def token_label(token: int) -> str:

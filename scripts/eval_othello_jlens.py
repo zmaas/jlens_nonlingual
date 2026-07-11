@@ -47,9 +47,11 @@ def evaluate(args) -> dict:
     model = TransformerLensLensModel(load_model(args.device, args.checkpoint))
     lens = JacobianLens.load(args.lens)
     games = generate_games(args.n_games, seed=args.seed, min_length=args.skip_first + 2)
-    ranks = {"jlens": {str(layer): [] for layer in lens.source_layers},
-             "logit_lens": {str(layer): [] for layer in lens.source_layers},
-             "final_logits": []}
+    ranks = {
+        "jlens": {str(layer): [] for layer in lens.source_layers},
+        "logit_lens": {str(layer): [] for layer in lens.source_layers},
+        "final_logits": [],
+    }
     examples = []
     for game_index, game in enumerate(games):
         positions = list(range(args.skip_first, len(game) - 1))
@@ -73,13 +75,15 @@ def evaluate(args) -> dict:
             for layer in lens.source_layers:
                 top = torch.topk(j_logits[layer][row], args.k).indices.tolist()
                 per_layer[str(layer)] = [token_label(token) for token in top]
-            examples.append({
-                "game_index": game_index,
-                "position": position,
-                "prefix": [token_label(t) for t in game[: position + 1]],
-                "target": token_label(game[position + 1]),
-                "jlens_top_k_by_layer": per_layer,
-            })
+            examples.append(
+                {
+                    "game_index": game_index,
+                    "position": position,
+                    "prefix": [token_label(t) for t in game[: position + 1]],
+                    "target": token_label(game[position + 1]),
+                    "jlens_top_k_by_layer": per_layer,
+                }
+            )
 
     return {
         "model": "OthelloGPT synthetic TransformerLens checkpoint",
@@ -91,13 +95,9 @@ def evaluate(args) -> dict:
         "k": args.k,
         "token_encoding": TOKEN_ENCODING,
         "metrics": {
-            "jlens": {
-                layer: _summary(values, args.k)
-                for layer, values in ranks["jlens"].items()
-            },
+            "jlens": {layer: _summary(values, args.k) for layer, values in ranks["jlens"].items()},
             "logit_lens": {
-                layer: _summary(values, args.k)
-                for layer, values in ranks["logit_lens"].items()
+                layer: _summary(values, args.k) for layer, values in ranks["logit_lens"].items()
             },
             "final_logits": _summary(ranks["final_logits"], args.k),
         },
@@ -128,15 +128,14 @@ def markdown(result: dict) -> str:
     ]
     for layer in result["source_layers"]:
         j = result["metrics"]["jlens"][str(layer)]
-        l = result["metrics"]["logit_lens"][str(layer)]
+        logit = result["metrics"]["logit_lens"][str(layer)]
         lines.append(
             f"| {layer} | {j[f'pass@{k}']:.3f} | {j['median_rank']:.1f} | "
-            f"{l[f'pass@{k}']:.3f} | {l['median_rank']:.1f} |"
+            f"{logit[f'pass@{k}']:.3f} | {logit['median_rank']:.1f} |"
         )
     final = result["metrics"]["final_logits"]
     lines += [
-        f"| final logits | {final[f'pass@{k}']:.3f} | "
-        f"{final['median_rank']:.1f} | — | — |",
+        f"| final logits | {final[f'pass@{k}']:.3f} | {final['median_rank']:.1f} | — | — |",
         "",
         "## Example prefixes",
         "",

@@ -48,3 +48,14 @@ def test_generated_game_replays_as_legal_without_emitted_passes() -> None:
             board[captured_square] = player
         player = -player
     assert all(SQUARE_TO_TOKEN[TOKEN_TO_SQUARE[token - 1]] == token for token in game)
+
+
+def test_position_states_align_targets_and_legal_moves() -> None:
+    from othello_common import game_position_states
+
+    game = random_game(random.Random(17), max_moves=60)
+    records = game_position_states(game, skip_first=16)
+    assert records
+    for record in records:
+        assert record["target"] == game[record["position"] + 1]
+        assert record["target"] in record["legal_tokens"]
