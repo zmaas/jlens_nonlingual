@@ -1,0 +1,20 @@
+{
+  "experiment": "othello-workspace-closure",
+  "description": "Closure tests for whether OthelloGPT exposes a compact, causal, reusable move workspace.",
+  "full_run_defaults": {
+    "probe_games": 60,
+    "ablation_games": 20,
+    "rank_values": [1, 2, 4, 8, 16, 32, 59, 60],
+    "sparse_values": [1, 2, 4, 8, 12, 16, 25],
+    "sparse_causal_layers": [4, 5, 6],
+    "bootstrap_samples": 1000
+  },
+  "primary_outcomes": [
+    "relative board-state balanced accuracy",
+    "legal probability mass",
+    "legal precision at 5",
+    "all top five moves legal",
+    "sampled-target top-5 inclusion",
+    "output KL from baseline"
+  ]
+}
